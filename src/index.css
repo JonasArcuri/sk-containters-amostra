@@ -1,0 +1,133 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%; /* #FFFFFF Branco */
+    --foreground: 215 14% 34%; /* #4A5568 Cinza Escuro (para texto principal) */
+    
+    --card: 0 0% 100%; /* #FFFFFF Branco (para cards) */
+    --card-foreground: 215 14% 34%; /* #4A5568 Cinza Escuro */
+    
+    --popover: 0 0% 100%; /* #FFFFFF Branco */
+    --popover-foreground: 215 14% 34%; /* #4A5568 Cinza Escuro */
+    
+    --primary: 145 58% 41%; /* #27AE60 Verde */
+    --primary-foreground: 0 0% 100%; /* #FFFFFF Branco */
+    
+    --secondary: 36 90% 51%; /* #F39C12 Laranja */
+    --secondary-foreground: 0 0% 100%; /* #FFFFFF Branco */
+    
+    --accent: 36 90% 56%; /* #F39C12 Laranja (pode ser o mesmo ou um tom mais claro/escuro) */
+    --accent-foreground: 0 0% 100%; /* #FFFFFF Branco */
+    
+    --muted: 220 13% 95%; /* #F1F5F9 Cinza Claro (para fundos de seção alternados) */
+    --muted-foreground: 215 14% 44%; /* #6A7588 Cinza Médio (para texto secundário) */
+    
+    --destructive: 0 72% 51%; /* Vermelho (padrão) */
+    --destructive-foreground: 0 0% 98%; /* Branco (padrão) */
+    
+    --border: 220 13% 88%; /* #DDE3EA Borda sutil para inputs e elementos */
+    --input: 0 0% 100%; /* #FFFFFF Fundo do input */
+    --ring: 36 90% 51%; /* #F39C12 Laranja para anel de foco */
+    
+    --radius: 0.375rem; /* 6px */
+  }
+
+  .dark {
+    /* Mantendo o tema claro conforme a descrição, mas pode ser definido se necessário */
+    --background: 0 0% 100%;
+    --foreground: 215 14% 34%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 14% 34%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 14% 34%;
+    --primary: 145 58% 41%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 36 90% 51%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 36 90% 56%;
+    --accent-foreground: 0 0% 100%;
+    --muted: 220 13% 95%;
+    --muted-foreground: 215 14% 44%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 88%;
+    --input: 0 0% 100%;
+    --ring: 36 90% 51%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    @apply font-sans text-base; /* Tamanho 16px padrão */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold text-primary; /* Títulos verdes e negrito */
+  }
+  p {
+    @apply text-foreground; /* Cinza escuro para parágrafos */
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-section-md md:py-section-lg; /* Espaçamento generoso entre seções */
+  }
+  .container-boxed {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8; /* Max-width para conteúdo */
+  }
+  
+  /* Botões conforme o guia */
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-bold uppercase rounded-md shadow-sm transition-colors duration-150 ease-in-out;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring;
+  }
+  .btn-primary { /* Laranja para ações principais */
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90;
+  }
+  .btn-secondary { /* Verde para ações secundárias */
+    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+  }
+  .btn-outline-primary {
+    @apply bg-transparent border-primary text-primary hover:bg-primary/5;
+  }
+   .btn-outline-secondary {
+    @apply bg-transparent border-secondary text-secondary hover:bg-secondary/5;
+  }
+
+  /* Estilos para formulários */
+  .form-input {
+    @apply block w-full px-element-md py-2.5 border border-border rounded-md shadow-sm placeholder-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring focus:border-ring sm:text-sm;
+  }
+  .form-label {
+    @apply block text-sm font-medium text-foreground mb-1; /* Labels acima dos campos */
+  }
+}
+
+/* Classes utilitárias específicas */
+.text-brand-green {
+  @apply text-primary;
+}
+.text-brand-orange {
+  @apply text-secondary;
+}
+.bg-brand-green {
+  @apply bg-primary;
+}
+.bg-brand-orange {
+  @apply bg-secondary;
+}
+.bg-light-gray {
+  @apply bg-muted;
+}
